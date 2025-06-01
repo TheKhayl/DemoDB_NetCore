@@ -18,7 +18,7 @@ How to do that?
 
 5. Under this code "optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=netcoreDemoDB;Trusted_Connection=True;Encrypt=False");"
 
-	Replace the value of "Database=" with the name of your Database.
+	Replace the value of "Database=" with the name of the database you like but you can leave this if you want to.
 
 6. Go to your PackageManagerConsole by going to Tools->NuGet Package Manager->Package Manager Console and type the following:
 
