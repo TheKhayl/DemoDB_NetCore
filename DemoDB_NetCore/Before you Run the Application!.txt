@@ -1,0 +1,40 @@
+﻿Rev's Note:
+
+WAIT! Before you run the application you need to do something so it works for you; specifically because this Winforms application uses Database you have to connect your own local Database.
+
+How to do that?
+
+1. Go to your Windows Search and Search "SQL Server Configuration Manager"
+
+2. Make sure that your SQL Server is running, you can see its state by:
+	- SQL Server Services (Double click it)
+	- Look at the SQL Server and look for the column "State" and see if it is running.
+
+3. Go to your Windows Search and Search "SQL Server Management Studio" and connect to your local database by doing the following:
+	3.1. Server Name: localhost\SQLEXPRESS
+	3.2. Check the "Trust Server Certificate"
+
+4. Once connected, go to this Visual Studio file and look for the folder "Data" and click "ModelContext.cs"
+
+5. Under this code "optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=netcoreDemoDB;Trusted_Connection=True;Encrypt=False");"
+
+	Replace the value of "Database=" with the name of your Database.
+
+6. Go to your PackageManagerConsole by going to Tools->NuGet Package Manager->Package Manager Console and type the following:
+
+	6.1. Enable-Migrations or Enable-Migrations -Force (If errors in the prompt showed)
+	6.2. Add-Migration InitialCreate (InitialCreate basically is the title of your Migration or "Commit" in Git)
+	6.3. Update-Database (Fully update your database based on your Migration)
+
+7. You can see the changes in your database by going to your DBMS (SQL Server Management Studio), Refreshing it by clicking the Refresh Icon and looking at the Databases.
+
+	You will see your Database, if you want to see the table and its attributes go ahead and collapse the DB you made then collapse Tables.
+
+	Once you see your Table "Employee" usually prefixed with "dbo." since it is the Model that we made (Employee.cs) and the DbList in the ModelContext.cs, you can right click the dbo.Employee and click Design to see its structure.
+
+	To see the values right click the table again then click "Select Top 1000 Rows"
+
+
+Yun lang, goodluck!
+
+
